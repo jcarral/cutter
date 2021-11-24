@@ -1,4 +1,5 @@
 const arg = require('arg');
+const { countLines } = require('./utils')
 
 const FLAGS = {
     '--input': String,
@@ -12,11 +13,26 @@ const FLAGS = {
     '-f': '--files',
 };
 
-module.exports.parse = () => {
-    const { _, ...args } = arg(
-        FLAGS
-    );
-    let parsedOptions = {};
+const calculateBatch = async (fileLocation, numberOfFiles) => {
+    const linesInFile = await countLines(fileLocation);
+    return (linesInFile < numberOfFiles) ?
+        1 
+        : Math.floor(linesInFile / numberOfFiles);
+};
+
+//TODO; VALIDATE
+module.exports.parse = async () => {
+    const { _, ...args } = arg(FLAGS);
+    let parsedOptions = Object.create(null);
+
     Object.keys(args).forEach(key => parsedOptions[key.replace('--', '')] = args[key]);
-    return parsedOptions;
+
+    const batch = parsedOptions.size ? 
+        parsedOptions.size
+        : await calculateBatch(parsedOptions.input, parsedOptions.files);
+
+    return {
+        batch,
+        ...parsedOptions
+    };
 };
