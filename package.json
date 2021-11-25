@@ -1,10 +1,10 @@
 {
-  "name": "cutter",
-  "version": "1.0.0",
+  "name": "cutter-files",
+  "version": "0.0.1",
   "description": "",
   "main": "src/cli.js",
   "bin": {
-    "cutter": "bin/cutter"
+    "cutter-files": "bin/cutter"
   },
   "scripts": {
     "local": "npm link && npm install",

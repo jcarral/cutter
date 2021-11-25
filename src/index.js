@@ -3,8 +3,10 @@ const cutter = require('./cutter');
 
 
 const help = () => console.log(`
-    HELP MESSAGE
-`);
+Usage: cutter-files [--input|-i] <fileName> [--files|-f] <numberOfFiles> [--size|-s] <sizeOfFiles>
+    Ex:
+        cutter-files -i file.txt -f 10
+`)
 
 
 const main = async ()  => {
@@ -14,7 +16,6 @@ const main = async ()  => {
         cutter.cut({ fileName, batch });
         
     } catch(e) {
-        console.error(e);
         help();
     }
    

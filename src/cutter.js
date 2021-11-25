@@ -38,7 +38,6 @@ const cut = ({ fileName, batch }) => new Promise((reject, resolve) => {
         resolve();
     };
 
-
     lineReader.on('line', onReadLine);
     lineReader.on('close', onCloseStream);
 
