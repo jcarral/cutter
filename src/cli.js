@@ -52,7 +52,7 @@ module.exports.parse = async () => {
     
     validateOptions(parsedOptions, REQUIRED_FLAGS);
 
-    const batch = getBatch(parsedOptions);
+    const batch = await getBatch(parsedOptions);
 
     return {
         batch,
