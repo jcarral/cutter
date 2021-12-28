@@ -14,10 +14,10 @@ const main = async ()  => {
         const { input : fileName, batch, outputFiles } = await cli.parse();
             
         await cutter.cut({ fileName, batch, outputFiles });
-        console.log(`SUCESS!! ${outputFiles} file/s created`);
+        console.log(`SUCCESS!! ${outputFiles} filescreated`);
     } catch(e) {
         help();
-        console.error(e);
+        console.error(e.message);
     }
    
 };
