@@ -4,11 +4,11 @@
   "description": "",
   "main": "src/cli.js",
   "bin": {
-    "cutter-files": "bin/cutter"
+    "cutter": "bin/cutter"
   },
   "scripts": {
     "local": "npm link && npm install",
-    "test": "echo \"Error: no test specified\""
+    "test": "jest --config ./jest.config.json"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,11 @@
   "homepage": "https://github.com/jcarral/cutter#readme",
   "dependencies": {
     "arg": "^5.0.1",
-    "esm": "^3.2.25"
+    "esm": "^3.2.25",
+    "fs-extra": "^10.0.0"
+  },
+  "devDependencies": {
+    "jest": "^27.4.3",
+    "rewire": "^6.0.0"
   }
 }
